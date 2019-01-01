@@ -14,8 +14,6 @@ public class MySQLConnectionTest {
     static final String URL = "jdbc:mysql://54.180.2.3:3306/test?useSSL=false";
     static final String USERNAME = "scott";
     static final String PASSWORD = "tiger";
-    
-    // 깃 ㅈ같네
  
     @Test
     public void getMySQLConnectionTest() {
