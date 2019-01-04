@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
  
 import org.junit.Test;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import edu.java.teamproject.model.User;
  
 public class MySQLConnectionTest {
  
@@ -16,6 +19,76 @@ public class MySQLConnectionTest {
     static final String PASSWORD = "tiger";
  
     @Test
+    public void doTest() {
+    	getMySQLConnectionTest();
+//    	setPwEncryptioning();
+    }
+    
+    public void setPwEncryptioning() {
+    	Connection conn = null;
+        Statement stmt = null;
+        
+        try {
+            
+            System.out.println("==================== MySQL Connection START ====================");
+            
+            Class.forName(DRIVER);
+            
+            conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+ 
+//            String sql = "SELECT * FROM test.User";
+ 
+            User user = new User("twon123", "54321", "twon123@daum.net", null, "엄엄", null, 0, null, null);
+            
+            BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+            System.out.println(user.toString());
+            
+            String pw = scpwd.encode(user.getPassword());
+            
+            user.setPassword(pw);
+            System.out.println(user.toString());
+            
+            /*String sql = "INSERT INTO User (id, password, email, nickname) VALUES " + 
+            		"(" + user.getId() + "," + user.getPassword() + "," + user.getEmail() + "," + user.getNickname() + ")";*/
+            
+            String sql_1 = String.format("INSERT INTO test.User (id, password, email, nickname) VALUES ('%s', '%s', '%s', '%s')", user.getId(), user.getPassword(), user.getEmail(), user.getNickname());
+            
+            System.out.println(sql_1);
+            if(stmt.executeUpdate(sql_1) == 1) {
+            	System.out.println("DB Insert Success");
+            } else {
+            	System.out.println("DB Insert Fail");
+            }
+ 
+            stmt.close();
+            conn.close();
+ 
+        } catch (SQLException se1) {
+            se1.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        
+        System.out.println("==================== MySQL Connection END ====================");
+    	
+    }
+    
     public void getMySQLConnectionTest() {
     	
         
@@ -31,7 +104,7 @@ public class MySQLConnectionTest {
             conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             stmt = conn.createStatement();
  
-            String sql = "SELECT BOARD_SUBJECT, BOARD_CONTENT, BOARD_WRITER FROM TB_BOARD";
+            String sql = "SELECT * from test.Board";
  
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
