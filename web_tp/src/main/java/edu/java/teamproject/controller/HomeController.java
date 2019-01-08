@@ -1,4 +1,4 @@
-package edu.java.teamproject;
+package edu.java.teamproject.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
