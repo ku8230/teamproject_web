@@ -18,7 +18,7 @@
         lazy-init="false">
  
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://54.180.2.3:3306/test" />
+        <property name="url" value="jdbc:mysql://54.180.2.3:3306/test?characterEncoding=UTF-8" />
         <property name="username" value="scott" />
         <property name="password" value="tiger" />
     </bean>   
@@ -57,5 +57,22 @@
 	<!-- base-package와 그 하위 폴더에서 MyBatis SQL 어노테이션이 있는
 	인터페이스를 모두 검색해서 bean(객체) 생성/관리 -->
 	<!-- <mybatis-spring:scan base-package="edu.java.mappers"/> -->
+	
+	<!-- 메일보내기 -->
+   <bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="twon143@gmail.com" />
+      <property name="password" value="xodnjs2973~" />
+      
+      <property name="javaMailProperties">
+         <props>
+               <prop key="mail.transport.protocol">smtp</prop>
+               <prop key="mail.smtp.auth">true</prop>
+               <prop key="mail.smtp.starttls.enable">true</prop>
+               <prop key="mail.debug">true</prop>
+         </props>
+      </property>
+    </bean>
 
 </beans>

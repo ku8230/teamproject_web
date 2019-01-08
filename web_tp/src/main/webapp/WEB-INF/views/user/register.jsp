@@ -10,24 +10,23 @@
 </head>
 <body>
 <h1>회원가입 테스트용</h1>
-<form action="home" method="post">
+<form action="register" method="post">
 	<input type="text" id ="userId" name="id" placeholder="아이디 입력" required="required"/>
-	<input type="text" id="checkUserId" name="validateIds" readonly="readonly" placeholder="아이디 조건 검사"/>
+	<!-- <input type="text" id="checkUserId" name="validateIds" readonly="readonly" placeholder="아이디 조건 검사"/> -->
 	<br/>
 	<input type="password" id ="btnPassword" name="password" placeholder="비밀번호 입력" required="required" />
-	<input type="text" name="validatePassword" readonly="readonly" placeholder="비밀번호 조건 검사" />
+	<!-- <input type="text" name="validatePassword" readonly="readonly" placeholder="비밀번호 조건 검사" /> -->
 	<br/>
-	<input type="password" name="userCheckPwd" placeholder="비밀번호 확인" required="required" />
+	<!-- <input type="password" name="userCheckPwd" placeholder="비밀번호 확인" required="required" />
 	<input type="text" name="validateCheckPassword" readonly="readonly" placeholder="비밀번호확인 조건 검사" />
+	<br/> -->
+	<input type="email" name="email" placeholder="이메일 입력" required="required" />
+	<!-- <input type="text" name="validateEmail" readonly="readonly" placeholder="이메일 조건 검사" /> -->
 	<br/>
 	<input type="text" name="nickname" placeholder="닉네임 입력" required="required" />
-	<input type="text" name="validateNickname" readonly="readonly" placeholder="닉네임 조건 검사" />
-	<br/>
-	<input type="email" name="email" placeholder="이메일 입력" required="required" />
-	<input type="text" name="validateEmail" readonly="readonly" placeholder="이메일 조건 검사" />
+	<!-- <input type="text" name="validateNickname" readonly="readonly" placeholder="닉네임 조건 검사" /> -->
 	<br/>
 	<input type="submit" value="회원가입" />
-	<input type="hidden" name="queryString" value="${targetUrl}" />
 </form>
 
 
@@ -35,7 +34,7 @@
 $(document).ready(function () {
 	$('#btnPassword').click(function() {
 		var id = $('#userId').val();
-		int id_length = $('#userId').length();
+		var id_length = $('#userId').length();
 		var id_Form_Check = /^[a-z]{1}[a-z0-9]$/;
 		if(id == '') {
 			$('#checkUserId').val('아이디를 입력하시오')

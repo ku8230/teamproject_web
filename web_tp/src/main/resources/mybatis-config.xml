@@ -8,6 +8,7 @@
   
   	<properties>
   		<!-- 상수 정의: 테이블 이름, 컬럼 이름 -->
+  		<!-- Board(게시글) 테이블 컬럼 -->
   		<property name="tbl_board" value="test.Board"/>
 		<property name="board.bno" value="bno"/>
 		<property name="board.title" value="title"/>
@@ -25,6 +26,19 @@
 		<property name="board.reply_count" value="reply_count"/>
 		<property name="board.answer_choose" value="answer_choose"/>
   	
+  		<!-- User(사용자) 테이블 컬럼 -->
+  		<property name="tbl_user" value="test.User"/>
+  		<property name="user.id" value="id"/>
+  		<property name="user.password" value="password"/>
+  		<property name="user.email" value="email"/>
+  		<property name="user.join_date" value="join_date"/>
+  		<property name="user.nickname" value="nickname"/>
+  		<property name="user.introduce" value="introduce"/>
+  		<property name="user.active_point" value="active_point"/>
+  		<property name="user.profile_image" value="profile_image"/>
+  		<property name="user.background_image" value="background_image"/>
+  		<property name="user.verify" value="verify"/>
+  		<property name="user.auth_code" value="auth_code"/>
   		
   	</properties>
   

@@ -13,15 +13,14 @@ public class User {
 	private int active_point;
 	private String profile_image;
 	private String background_image;
+	private int verify;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public User(String id, String password, String email, Date join_date, String nickname, String introduce,
-			int active_point, String profile_image, String background_image) {
+			int active_point, String profile_image, String background_image, int verify) {
 		super();
 		this.id = id;
 		this.password = password;
@@ -32,9 +31,8 @@ public class User {
 		this.active_point = active_point;
 		this.profile_image = profile_image;
 		this.background_image = background_image;
+		this.verify = verify;
 	}
-
-
 
 	public String getId() {
 		return id;
@@ -108,12 +106,22 @@ public class User {
 		this.background_image = background_image;
 	}
 
+	public int getVerify() {
+		return verify;
+	}
+
+	public void setVerify(int verify) {
+		this.verify = verify;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", password=" + password + ", email=" + email + ", join_date=" + join_date
 				+ ", nickname=" + nickname + ", introduce=" + introduce + ", active_point=" + active_point
-				+ ", profile_image=" + profile_image + ", background_image=" + background_image + "]";
+				+ ", profile_image=" + profile_image + ", background_image=" + background_image + ", verify=" + verify
+				+ "]";
 	}
+	
 	
 	
 }

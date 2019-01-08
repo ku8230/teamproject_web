@@ -20,8 +20,8 @@ public class MySQLConnectionTest {
  
     @Test
     public void doTest() {
-    	getMySQLConnectionTest();
-//    	setPwEncryptioning();
+//    	getMySQLConnectionTest();
+    	setPwEncryptioning();
     }
     
     public void setPwEncryptioning() {
@@ -39,7 +39,7 @@ public class MySQLConnectionTest {
  
 //            String sql = "SELECT * FROM test.User";
  
-            User user = new User("twon123", "54321", "twon123@daum.net", null, "엄엄", null, 0, null, null);
+            User user = new User("twon239", "54321", "twon123@daum.net", null, "엄땅크zmwed", null, 0, null, null, 0);
             
             BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
             System.out.println(user.toString());
