@@ -18,7 +18,7 @@
         lazy-init="false">
  
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://54.180.2.3:3306/test?characterEncoding=UTF-8" />
+        <property name="url" value="jdbc:mysql://54.180.2.3:3306/test" />
         <property name="username" value="scott" />
         <property name="password" value="tiger" />
     </bean>   

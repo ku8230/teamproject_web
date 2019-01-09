@@ -21,7 +21,7 @@ import edu.java.teamproject.model.User;
 @WebAppConfiguration
 public class MySQLConnectionTest {
  
-    static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String DRIVER = "com.mysql.jdbc.Driver";
     static final String URL = "jdbc:mysql://54.180.2.3:3306/test?useSSL=false";
     static final String USERNAME = "scott";
     static final String PASSWORD = "tiger";

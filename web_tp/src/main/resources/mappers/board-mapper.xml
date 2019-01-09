@@ -15,13 +15,13 @@
 	<!-- Keyword가 포함된 글제목으로 게시글 검색  -->
 	<select id="selectByTitle" resultType="Board">
 		select * from ${tbl_board}
-		where ${board.title} = #{}
+		where ${board.title} = #{title}
 	</select>
 	
 	<!-- 게시글 등록 -->
-	<insert id="insertBoard">
+	<!-- <insert id="insertBoard">
 		insert into ${tbl_board} (${board.title}, ${board.content}, ${board.writer}, ${board.category}, ${board.type}, ${board.tag}, ${board.link}, ${board.image})
 		values (#{title}, #{content}, #{writer}, #{category}, #{type}, #{tag}, #{link}, #{image})
-	</insert>
+	</insert> -->
 
 </mapper>
