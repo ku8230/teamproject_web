@@ -18,6 +18,16 @@ public class User {
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public User(String id, String password) {
+		super();
+		this.id = id;
+		this.password = password;
+	}
+
+
 
 	public User(String id, String password, String email, Date join_date, String nickname, String introduce,
 			int active_point, String profile_image, String background_image, int verify) {

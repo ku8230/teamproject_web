@@ -31,6 +31,7 @@ public class UserDaoImple implements UserDao {
 	@Override
 	public User loginCheck(User user) {
 		logger.info("loginCheck({})", user);
+		
 		return session.selectOne(USER_MAPPER + ".loginCheck", user);
 	}
 

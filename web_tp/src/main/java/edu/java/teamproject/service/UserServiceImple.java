@@ -4,8 +4,11 @@ import java.io.UnsupportedEncodingException;
 
 import javax.mail.MessagingException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import edu.java.teamproject.model.User;
@@ -16,6 +19,10 @@ import edu.java.teamproject.util.Tempkey;
 @Service
 public class UserServiceImple implements UserService {
 
+	private final Logger logger = LoggerFactory.getLogger(UserServiceImple.class);
+	
+	@Autowired BCryptPasswordEncoder passwordEncoder;
+	
 	@Autowired
 	private JavaMailSender mailSender;
 	
@@ -24,6 +31,9 @@ public class UserServiceImple implements UserService {
 	
 	@Override
 	public void signUp(User user) throws MessagingException, UnsupportedEncodingException {
+		
+		logger.info("signUp({})", user);
+		
 		if(userDao.insertUser(user) == 1) {
 			String key = new Tempkey().getKey(50, false);
 			if(userDao.createAuthKey(user.getEmail(), key) == 1) {
@@ -44,8 +54,24 @@ public class UserServiceImple implements UserService {
 	}
 
 	@Override
-	public void signIn(User user) {
-		// TODO Auto-generated method stub
+	public boolean signIn(User user) {
+		
+		logger.info("signIn({})", user);
+		
+		User registerdUser = userDao.loginCheck(user);
+		
+		logger.info("rawPw : {}, encodedPw : {}", user.getPassword(), registerdUser.getPassword());
+		
+		if(registerdUser != null) {
+			if(passwordEncoder.matches(user.getPassword(), registerdUser.getPassword())) {
+				logger.info("로그인 성공");
+				return true;
+			}else {
+				logger.info("로그인 실패");
+			}
+		}
+		
+		return false;
 		
 	}
 

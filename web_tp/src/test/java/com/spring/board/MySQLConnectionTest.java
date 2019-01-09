@@ -5,18 +5,28 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
- 
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import edu.java.teamproject.model.User;
- 
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/*.xml"})
+@WebAppConfiguration
 public class MySQLConnectionTest {
  
-    static final String DRIVER = "com.mysql.jdbc.Driver";
+    static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String URL = "jdbc:mysql://54.180.2.3:3306/test?useSSL=false";
     static final String USERNAME = "scott";
     static final String PASSWORD = "tiger";
+    
+    @Autowired BCryptPasswordEncoder passwordEncoder;
  
     @Test
     public void doTest() {
@@ -25,6 +35,8 @@ public class MySQLConnectionTest {
     }
     
     public void setPwEncryptioning() {
+    	
+    	
     	Connection conn = null;
         Statement stmt = null;
         
@@ -39,12 +51,12 @@ public class MySQLConnectionTest {
  
 //            String sql = "SELECT * FROM test.User";
  
-            User user = new User("twon239", "54321", "twon123@daum.net", null, "엄땅크zmwed", null, 0, null, null, 0);
+            User user = new User("twon123", "xodnjs2973", "twon123@gmail.com", null, "엄태원찐", null, 0, null, null, 0);
             
-            BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-            System.out.println(user.toString());
+//            BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+//            System.out.println(user.toString());
             
-            String pw = scpwd.encode(user.getPassword());
+            String pw = passwordEncoder.encode(user.getPassword());
             
             user.setPassword(pw);
             System.out.println(user.toString());

@@ -7,7 +7,7 @@
 	<!-- SQL 문장들을 정의 -->
 	<select id="loginCheck" resultType="User">
 		SELECT * FROM ${tbl_user}
-		WHERE ${user.id} = #{id} and ${user.password} = #{password}
+		WHERE ${user.id} = #{id}
 	</select>
 	
 	<insert id="insertUser">
