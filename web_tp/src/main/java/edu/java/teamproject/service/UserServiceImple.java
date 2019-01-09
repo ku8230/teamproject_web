@@ -54,7 +54,7 @@ public class UserServiceImple implements UserService {
 	}
 
 	@Override
-	public boolean signIn(User user) {
+	public User signIn(User user) {
 		
 		logger.info("signIn({})", user);
 		
@@ -65,13 +65,13 @@ public class UserServiceImple implements UserService {
 		if(registerdUser != null) {
 			if(passwordEncoder.matches(user.getPassword(), registerdUser.getPassword())) {
 				logger.info("로그인 성공");
-				return true;
+				return registerdUser;
 			}else {
 				logger.info("로그인 실패");
 			}
 		}
 		
-		return false;
+		return null;
 		
 	}
 

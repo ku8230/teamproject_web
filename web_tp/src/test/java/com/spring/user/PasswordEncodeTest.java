@@ -31,7 +31,7 @@ public class PasswordEncodeTest {
 		logger.info("loginTest() 호출");
 		
 		User user = new User("twon123", "xodnjs2973");
-		boolean loginResult = userService.signIn(user);
+		User loginResult = userService.signIn(user);
 		
 		logger.info("loginResult : {}", loginResult);
 	}

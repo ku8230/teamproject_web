@@ -43,7 +43,9 @@ $(document).ready(function () {
 			$('#checkUserId').val('아이디는 6자리이상 12자이하로 입력하시오')
 			
 		}
-		else if(!id_Form_Check.test($(id)))
+		else if(!id_Form_Check.test($(id))) {
+			
+		}
 		
 		
 	})

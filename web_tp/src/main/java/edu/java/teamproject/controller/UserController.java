@@ -1,6 +1,8 @@
 package edu.java.teamproject.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private JavaMailSender mailSender;
-	
 	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public void register() {
 		logger.info("register() 호출");
@@ -43,13 +42,40 @@ public class UserController {
 		
 		return "redirect:/teamproject/";
 	}
-	
-	
 
 	@RequestMapping(value = "emailConfirm", method = RequestMethod.GET)
 	public void emailConfirm(String user_email, Model model) {
 		userService.enableUserLogin(user_email);
 		model.addAttribute("user_email", user_email);
 		
+	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public void login(String url, Model model) {
+		logger.info("login() 호출");
+		
+		// url : 로그인 페이지 이동 전의 페이지 url >> 로그인 후 해당 페이지로 이동하기 위함
+		
+		if(url != null) {
+			model.addAttribute("targetUrl", url);
+		}
+	}
+	
+	@RequestMapping(value = "login-post", method = RequestMethod.POST)
+	public void login(User user, Model model) {
+		logger.info("loginPost({})", user);
+		
+		User result = userService.signIn(user);
+		model.addAttribute("loginResult", result);
+	}
+	
+	@RequestMapping(value = "logout")
+	public String logout(HttpSession session) {
+		logger.info("logout() 호출");
+		logger.info("loginId: {}", session.getAttribute("loginId"));
+		
+		session.invalidate(); // Session 객체를 삭제
+		
+		return "redirect:/"; // 메인 페이지로 이동
 	}
 }

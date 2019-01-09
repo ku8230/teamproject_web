@@ -9,6 +9,6 @@ import edu.java.teamproject.model.User;
 public interface UserService {
 
 	void signUp(User user) throws MessagingException, UnsupportedEncodingException;
-	boolean signIn(User user);
+	User signIn(User user);
 	int enableUserLogin(String email);
 }
