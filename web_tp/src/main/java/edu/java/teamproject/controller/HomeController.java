@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
+	// 메인 페이지 띄우기 위한 서블릿(컨트롤러)	
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
