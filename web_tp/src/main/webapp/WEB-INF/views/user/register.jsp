@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>회원가입 테스트용</title>
 </head>
+
 <body>
 <h1>회원가입 테스트용</h1>
 <form action="register" method="post">

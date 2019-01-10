@@ -24,6 +24,7 @@
          <div class="modal-content">
             <!--  -->
 
+
             <div class="row">
                <div class="col-sm-6">
                   <div class="modal-header"><h4>회원가입</h4></div>

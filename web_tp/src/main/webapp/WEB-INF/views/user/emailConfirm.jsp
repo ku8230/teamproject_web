@@ -19,5 +19,6 @@
 		/* window.close(); // 브라우저 창 닫기 */
 		self.location = '/';
 		</script>
+		
 </body>
 </html>

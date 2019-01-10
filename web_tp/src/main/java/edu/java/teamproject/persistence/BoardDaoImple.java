@@ -23,6 +23,7 @@ public class BoardDaoImple implements BoardDao {
 		// spring 컨테이너가 생성한 객체(root-context.xml)를 자동으로 넣어줌
 	@Autowired private SqlSession session;
 	
+	
 	@Override
 	public List<Board> read() {
 		logger.info("read() 메소드 호출");

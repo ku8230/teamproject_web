@@ -22,6 +22,7 @@ public class UserDaoImple implements UserDao {
 	@Autowired
 	private SqlSession session;
 	
+	
 	@Override
 	public int insertUser(User user) {
 		logger.info("insert({})", user);

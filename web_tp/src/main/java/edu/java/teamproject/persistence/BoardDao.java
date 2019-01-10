@@ -13,4 +13,5 @@ public interface BoardDao {
 	int delete(Board board);
 	List<Board> searchByKeyword(int type, String keyword);
 	
+	
 }

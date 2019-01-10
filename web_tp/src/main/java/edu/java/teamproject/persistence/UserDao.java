@@ -8,4 +8,5 @@ public interface UserDao {
 	User loginCheck(User user);
 	int createAuthKey(String email, String key);
 	int enableUserLogin(String email);
+	
 }

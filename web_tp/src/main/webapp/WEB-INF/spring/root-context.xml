@@ -37,6 +37,7 @@
 			value="classpath:mappers/*.xml" />
 	</bean>
 	
+	
 	<!-- SqlSession 객체(bean): SQL 실행 기능 -->
 	<!--  
 	SqlSessionTemplate sqlSession = new SST(sqlSessionFactory);

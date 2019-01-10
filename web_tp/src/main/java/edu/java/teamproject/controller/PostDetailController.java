@@ -13,6 +13,7 @@ public class PostDetailController {
 	@RequestMapping(value="/post-write")
 	public void PostDetail() {
 		
+		
 		logger.info("post-write들어옴");
 	}
 	

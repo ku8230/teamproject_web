@@ -22,6 +22,7 @@ div.content-header {
 	background-color: #6A9CF9;
 	display: table;
 }
+
 /* content-->content-header-->content-header-title-span*/
 div.content-header p {
 	display: table-cell;

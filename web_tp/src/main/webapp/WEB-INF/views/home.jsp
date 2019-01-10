@@ -31,6 +31,7 @@
 	<button id="btn-logout">로그아웃</button>
 </c:if>
 
+
 <hr/>
 <a href="board/list">게시판 메인 페이지</a>
 

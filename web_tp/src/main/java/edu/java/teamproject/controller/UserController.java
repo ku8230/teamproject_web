@@ -43,6 +43,7 @@ public class UserController {
 		return "redirect:/teamproject/";
 	}
 
+	
 	@RequestMapping(value = "emailConfirm", method = RequestMethod.GET)
 	public void emailConfirm(String user_email, Model model) {
 		userService.enableUserLogin(user_email);
